@@ -1,0 +1,31 @@
+body {
+  background: #FFF;
+}
+
+.column {
+  height: 100px;
+  line-height: 100px;
+  border: 1px solid #000;
+
+  font-family: "Helvetica";
+  color: #FFF;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.whole {
+  background: #be9b7b;
+}
+
+.half {
+  background: #854442;
+}
+
+.one-third {
+  background: #4b3832;
+}
+
+.block {
+  background: #00C3E2;
+  border-radius: 5px;
+}
