@@ -62,7 +62,7 @@ app.get("/flights/:from-:to", function(req, res) {
 * Using `res`, we can set the response code using the `status()` method
 
 ```js
-res.post("/admin", function(req, res) {
+app.get("/admin", function(req, res) {
 	// If they're not an admin, error out
 	if (!isAdmin) {
 		res.status(403); // 401 - Unauthorized
@@ -95,7 +95,7 @@ res.status(500).send("Error!");
 # Exercise: Country Info App
 
 * Using everything we just learned, we're going to make a page that displays some info about any country
-* Grab the JSON file from [here](https://gist.githubusercontent.com/wbobeirne/cbe7d2b0c6dc996f5a214cf876f542ce/raw/2cab97b658e56d5aa11760bca52b9383fc41bad7/country-info.json). It's a big object that contains country info, keyed by 3 letter code.
+* Grab the JSON file from [here](https://raw.githubusercontent.com/wbobeirne/lesson-modules/master/modules-5-16-express-3/countries-info.json). It's a big object that contains country info, keyed by 3 letter code.
 * Given a path that contains that country's 3 char code, i.e. /country/usa, display that country.
 * Render the English language name, native name, population, region, and show a picture of the flag by passing the country to res.render.
 * You should also return an error if they provide an incorrect country, 400 is a good code for this.
