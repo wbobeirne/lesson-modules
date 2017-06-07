@@ -98,13 +98,45 @@ autoscale: true
 ## Technique 3: Write Independent Modules
 
 * Every part of your project can be turned in to individual modules that have everything they need either passed in via functions, or imported via other modules
+* This also means you should be able to test out these modules without any other setup
+* Having files split out makes it easier to debug issues, and reuse that code for future projects
+* It may seem like a lot of overhead to do the importing and exporting, but it will save you time in the long run
 
 ---
 
-## Technique 4: Commit Individual Pieces
+## Technique 4: Fake It 'Till You Make It
+
+* Most things in your project depend on something else
+* Your views need data, your data needs a database, your database needs views to enter data
+* Rather than try to build all 3 at once, simply fake pieces of it until you finish one part
+  * Create json files that have fake data in them to simulate getting data from a database
+  * Manually insert items into your database using your Postgres GUI to test querying against in node
+  * Leave console.logs in functions you haven't finished yet, so that you can see it getting called (Especially for things like saving to the database)
+* Don't be afraid to commit these faked pieces, just leave a log saying it's not real yet
 
 ---
 
-## Technique 5: Manage Your Time
+## Technique 5: Commit Individual Pieces
 
-* The developer's mindset isn't one that we sit in all the time, at least initially
+* Many assignments only have 1-3 git commits total, which is far too few
+* Every time you complete a feature, you should commit it and describe the feature in your commit message
+* But don't be afraid to commit things that aren't complete yet!
+* Whenever you finish coding, even if it's incomplete, leave a commit describing what you're in the middle of
+* That way, when you come back, you can read your last message and see what you were working on
+* Given the size of your homework projects, you should easily have **6+** commits, and commits shouldn't be more than **~80 lines of code**
+
+---
+
+## Technique 6: Manage Your Time
+
+* The developer's mindset isn't one that we sit in all the time
+* Don't try to take on projects 20 minutes at a time, the time it takes to get yourself setup and thinking about your current problem is pretty sizable
+* Set aside at least an hour when working, so that you can really get in to the task at hand
+* But on the flip, taking breaks can be extremely helpful, you may find your issues resolve much more easily if you get up and take a walk
+
+---
+
+## Additional Reading
+
+* [What is Code? (2015)](https://www.bloomberg.com/graphics/2015-paul-ford-what-is-code/) - A long, strange article about what it is to write code. I don't know that I've ever read anything that summed it up better.
+* [The Best Websites a Programmer Should Visit](https://github.com/sdmg15/Best-websites-a-programmer-should-visit) - A big index of a ton of helpful sites you should visit, whether you're looking to learn something new, practice something you know, or follow news and trends.
