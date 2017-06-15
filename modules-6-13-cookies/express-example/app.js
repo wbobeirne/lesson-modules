@@ -6,6 +6,11 @@ app.set("view engine", "ejs");
 app.use(cookieParser());
 
 app.get("/", function(req, res) {
+	res.cookie("json", {
+		key: "value",
+		boolean: false,
+	});
+
 	res.render("cookies", { cookies: req.cookies });
 });
 
