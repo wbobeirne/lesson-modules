@@ -88,15 +88,27 @@ app.get("/home", loggedInMW, function(req, res) {
 
 ---
 
+## Quick Aside: Cryptography & Hashes
+
+* So how does our server know our signed cookie is "legit"?
+* The cookie is "signed" with a hash of its name and value, and our secret string
+  * A hash is a way of generating a unique key to identify a large amount of data
+* Because the client doesn't know our secret string, it can't make a valid hash of any name / value it wants
+* This is why it's important to keep that string SECRET!
+
+---
+
 ## Signed Cookies Exercise: Save Login
 
 * Remember the `pwform` from a few classes back we used to secure `/traffic`?
-* Don't worry if you lost it, go ahead and re-download it from here:
+* Don't worry if you lost it, go ahead and download the project here: <br/> [https://github.com/wbobeirne/nycda-express-middleware](https://github.com/wbobeirne/nycda-express-middleware)
 * We'll want this middleware to use a signed cookie instead of checking the query:
 	* Set up the `cookie-parser` middleware with a `COOKIE_SECRET` env var
 	* Upon successfully typing in the password, you should save a signed cookie under the key `authenticated` to something truthy (`true` is fine)
 	* In addition to checking `req.query.password`, if that cookie is set, you should also `next()` in the middleware
 * Test to make sure it only requests the password once per session. You can use Chrome's incognito window to more easily test this.
+
+
 
 ---
 
@@ -105,8 +117,9 @@ app.get("/home", loggedInMW, function(req, res) {
 * With signed cookies, we're still making the data readable on the user's side
 * We can also still only store simple strings
 * Instead of that, we can use **sessions**
-* Sessions use signed cookies to save a unique "key" that "unlocks" a Javascript object on our server
-* That way we can store any secret data on the server, and only keep the key on the client's machine
+* Sessions use signed cookies to save one of those hashes
+* That hash is a "key" that "unlocks" a Javascript object on our server
+* That object can store all the secret data it wants, and have it stay on the server, the client needs to only hold on to the hash key
 
 ---
 
@@ -197,16 +210,17 @@ app.get("/home", loggedInMW, function(req, res) {
 
 ## So Which Should We Use?
 
-* You were taught both because sessions area superset of secured cookies
-  * Anything you can do with cookies, you can do with sessions
+* You were taught both because sessions are a superset of signed cookies
+  * Anything you can do with signed cookies, you can do with sessions
 	* But it's important to understand how sessions work using signed cookies
-* However, sessions allow us to do more since we're in control on the server:
-  * Storing secure data that shouldn't live on the client
+* However, sessions allow us to do more since we're not constrained by cookies:
+	* Storing larger, complex data, not just small strings
+  * Storing private data that shouldn't live on the client
 	* Sharing sessions between multiple browsers by using the same key
 	* Storing the session in something persistent
 	* We'll discuss these more in the future
-* So for now, **use sessions instead of signed cookies** for secure data
-* But you continue to use regular cookies for client side / insecure data
+* So for our projects, **use sessions instead of signed cookies**
+* But you should continue to use regular cookies that are set on the client side
 
 ---
 
