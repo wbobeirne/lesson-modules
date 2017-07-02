@@ -108,3 +108,4 @@ _[sharingbuttons.io](http://sharingbuttons.io)_
 	* [Pure](https://purecss.io/)
 * ["Design Basics" Class Slides from March](https://github.com/wbobeirne/lesson-modules/blob/master/modules-4-9-design-basics/design-basics.pdf)
 * [Web Design in 4 Minutes](http://jgthms.com/web-design-in-4-minutes) - For rolling your own, fun interactive article on all it takes to make a website feel designed
+* [Pixels - Daily Design Inspiration](https://klart.co/pixels) - A good curated blog of interesting and effective web design, good place to look for inspiration
